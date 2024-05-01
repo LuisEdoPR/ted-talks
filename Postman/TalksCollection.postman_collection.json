@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "fb9dbd1f-11e0-4e01-b550-cf94a82e9b05",
+		"name": "TalksCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "613923"
+	},
+	"item": [
+		{
+			"name": "get List of Talks (Paginated)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/talk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"talk"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "2147483647",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Talks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/talk/search?title=profitable companies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"talk",
+						"search"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "profitable companies"
+						},
+						{
+							"key": "author",
+							"value": "Amy ",
+							"disabled": true
+						},
+						{
+							"key": "minViews",
+							"value": "100000",
+							"disabled": true
+						},
+						{
+							"key": "maxViews",
+							"value": "1000000",
+							"disabled": true
+						},
+						{
+							"key": "minLikes",
+							"value": "10000",
+							"disabled": true
+						},
+						{
+							"key": "maxLikes",
+							"value": "20000",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Talk by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/talk/5442",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"talk",
+						"5442"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new talk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Test Title Talk\",\n    \"author\": \"Luis\",\n    \"date\": \"July 2020\",\n    \"views\": 1,\n    \"likes\": 1,\n    \"link\": \"http://mypage.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/talk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"talk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Talk",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Test Title Talk Updated\",\n    // \"author\": \"Luis\",\n    // \"date\": \"July 2020\",\n    // \"views\": 2,\n    // \"likes\": 2,\n    \"link\": \"http://mypage2.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/talk/5442",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"talk",
+						"5442"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Talk",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/talk/5442",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"talk",
+						"5442"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload talks from csv file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/luisedopr/Downloads/data.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/talk/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"talk",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

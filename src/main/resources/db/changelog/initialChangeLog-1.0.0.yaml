@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: luis.patino
+      changes:
+        - sql:
+            sql: CREATE SCHEMA test
+  - changeSet:
+      id: 2
+      author: luis.patino
+      changes:
+        - createTable:
+            schemaName: test
+            tableName: talks
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: talks_pkey
+              - column:
+                  name: title
+                  type: varchar(255)
+              - column:
+                  name: author
+                  type: varchar(255)
+              - column:
+                  name: date
+                  type: varchar(30)
+              - column:
+                  name: views
+                  type: bigint
+              - column:
+                  name: likes
+                  type: bigint
+              - column:
+                  name: link
+                  type: varchar(255)
